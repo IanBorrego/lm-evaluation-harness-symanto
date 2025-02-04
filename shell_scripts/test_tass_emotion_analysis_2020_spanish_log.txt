@@ -1,0 +1,32 @@
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `PYTORCH_PRETRAINED_BERT_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `PYTORCH_TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+2025-02-04:14:13:35,036 INFO     [__main__.py:284] Verbosity set to INFO
+2025-02-04:14:13:35,150 INFO     [__init__.py:459] The tag 'kobest' is already registered as a group, this tag will not be registered. This may affect tasks you want to call.
+2025-02-04:14:14:20,263 WARNING  [__main__.py:317]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2025-02-04:14:14:20,266 INFO     [__main__.py:369] Passed `--trust_remote_code`, setting environment variable `HF_DATASETS_TRUST_REMOTE_CODE=true`
+2025-02-04:14:14:20,270 INFO     [__main__.py:381] Selected Tasks: ['tass_emotion_analysis_2020_spanish']
+2025-02-04:14:14:20,286 INFO     [evaluator.py:165] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2025-02-04:14:14:20,287 INFO     [evaluator.py:202] Initializing hf model, with arguments: {'pretrained': 'EleutherAI/pythia-2.8b', 'trust_remote_code': True, 'parallelize': True, 'max_length': 2048}
+2025-02-04:14:14:25,737 INFO     [huggingface.py:358] Model parallel was set to True, setting max memory per GPU to {0: 50759598080, 1: 50759598080} and device map to auto
+The `GPTNeoXSdpaAttention` class is deprecated in favor of simply modifying the `config._attn_implementation`attribute of the `GPTNeoXAttention` class! It will be removed in v4.48
+2025-02-04:14:14:29,694 WARNING  [task.py:816] [Task: tass_emotion_analysis_2020_spanish] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+2025-02-04:14:14:29,694 WARNING  [task.py:816] [Task: tass_emotion_analysis_2020_spanish] metric f1 is defined, but higher_is_better is not. using default higher_is_better=True
+2025-02-04:14:14:33,923 INFO     [task.py:420] Building contexts for tass_emotion_analysis_2020_spanish on rank 0...
+  0%|          | 0/857 [00:00<?, ?it/s] 18%|█▊        | 150/857 [00:00<00:00, 1498.34it/s] 35%|███▌      | 301/857 [00:00<00:00, 1501.08it/s] 53%|█████▎    | 452/857 [00:00<00:00, 1487.07it/s] 71%|███████▏  | 612/857 [00:00<00:00, 1527.75it/s] 89%|████████▉ | 765/857 [00:00<00:00, 1457.69it/s]100%|██████████| 857/857 [00:00<00:00, 1451.79it/s]
+2025-02-04:14:14:34,540 INFO     [evaluator.py:513] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/5999 [00:00<?, ?it/s]Running loglikelihood requests:   0%|          | 1/5999 [00:13<21:58:03, 13.18s/it]Running loglikelihood requests:   6%|▌         | 353/5999 [00:13<02:29, 37.80it/s] Running loglikelihood requests:  12%|█▏        | 705/5999 [00:13<01:03, 84.02it/s]Running loglikelihood requests:  15%|█▍        | 897/5999 [00:14<00:45, 111.10it/s]Running loglikelihood requests:  21%|██        | 1258/5999 [00:14<00:23, 199.66it/s]Running loglikelihood requests:  25%|██▍       | 1470/5999 [00:14<00:19, 236.18it/s]Running loglikelihood requests:  30%|██▉       | 1793/5999 [00:15<00:13, 314.57it/s]Running loglikelihood requests:  32%|███▏      | 1917/5999 [00:15<00:12, 331.32it/s]Running loglikelihood requests:  37%|███▋      | 2241/5999 [00:16<00:08, 420.05it/s]Running loglikelihood requests:  43%|████▎     | 2605/5999 [00:16<00:05, 636.71it/s]Running loglikelihood requests:  46%|████▋     | 2781/5999 [00:16<00:05, 586.53it/s]Running loglikelihood requests:  52%|█████▏    | 3137/5999 [00:17<00:04, 667.83it/s]Running loglikelihood requests:  58%|█████▊    | 3500/5999 [00:17<00:02, 939.90it/s]Running loglikelihood requests:  62%|██████▏   | 3694/5999 [00:17<00:02, 810.43it/s]Running loglikelihood requests:  67%|██████▋   | 4033/5999 [00:17<00:02, 837.48it/s]Running loglikelihood requests:  73%|███████▎  | 4397/5999 [00:17<00:01, 1143.24it/s]Running loglikelihood requests:  77%|███████▋  | 4600/5999 [00:18<00:01, 967.52it/s] Running loglikelihood requests:  82%|████████▏ | 4929/5999 [00:18<00:01, 974.97it/s]Running loglikelihood requests:  88%|████████▊ | 5292/5999 [00:18<00:00, 1303.90it/s]Running loglikelihood requests:  92%|█████████▏| 5501/5999 [00:19<00:00, 1097.94it/s]Running loglikelihood requests:  97%|█████████▋| 5825/5999 [00:19<00:00, 1268.81it/s]Running loglikelihood requests: 100%|██████████| 5999/5999 [00:19<00:00, 311.30it/s] 
+2025-02-04:14:15:02,090 INFO     [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 64
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=EleutherAI/pythia-2.8b,trust_remote_code=True,parallelize=True,max_length=2048,trust_remote_code=True), gen_kwargs: (None), limit: 1000.0, num_fewshot: None, batch_size: auto:16 (64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64,64)
+|              Tasks               |Version|Filter|n-shot|Metric|   |Value |   |Stderr|
+|----------------------------------|------:|------|-----:|------|---|-----:|---|------|
+|tass_emotion_analysis_2020_spanish|      1|none  |     0|acc   |↑  |0.3372|±  |0.0162|
+|                                  |       |none  |     0|f1    |↑  |0.2932|±  |   N/A|
+
