@@ -1,0 +1,87 @@
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `PYTORCH_PRETRAINED_BERT_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `PYTORCH_TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+/data/research/sharedData/conda_envs/iborrego-lmeval-newnewtask/lib/python3.10/site-packages/transformers/utils/hub.py:128: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+2025-02-04:17:07:08,426 INFO     [__main__.py:284] Verbosity set to INFO
+2025-02-04:17:07:08,533 INFO     [__init__.py:459] The tag 'kobest' is already registered as a group, this tag will not be registered. This may affect tasks you want to call.
+2025-02-04:17:07:54,697 WARNING  [__main__.py:317]  --limit SHOULD ONLY BE USED FOR TESTING.REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT.
+2025-02-04:17:07:54,700 INFO     [__main__.py:369] Passed `--trust_remote_code`, setting environment variable `HF_DATASETS_TRUST_REMOTE_CODE=true`
+2025-02-04:17:07:54,720 INFO     [__main__.py:381] Selected Tasks: ['iberlef_fakedes_2021']
+2025-02-04:17:07:54,744 INFO     [evaluator.py:165] Setting random seed to 0 | Setting numpy seed to 1234 | Setting torch manual seed to 1234 | Setting fewshot manual seed to 1234
+2025-02-04:17:07:54,745 INFO     [evaluator.py:202] Initializing hf model, with arguments: {'pretrained': 'EleutherAI/pythia-2.8b', 'trust_remote_code': True, 'parallelize': True, 'max_length': 2048}
+2025-02-04:17:08:00,197 INFO     [huggingface.py:358] Model parallel was set to True, setting max memory per GPU to {0: 50759598080, 1: 50759598080} and device map to auto
+The `GPTNeoXSdpaAttention` class is deprecated in favor of simply modifying the `config._attn_implementation`attribute of the `GPTNeoXAttention` class! It will be removed in v4.48
+2025-02-04:17:08:04,133 WARNING  [task.py:816] [Task: iberlef_fakedes_2021] metric acc is defined, but higher_is_better is not. using default higher_is_better=True
+2025-02-04:17:08:04,134 WARNING  [task.py:816] [Task: iberlef_fakedes_2021] metric f1 is defined, but higher_is_better is not. using default higher_is_better=True
+2025-02-04:17:08:07,388 INFO     [task.py:420] Building contexts for iberlef_fakedes_2021 on rank 0...
+  0%|          | 0/572 [00:00<?, ?it/s] 10%|█         | 59/572 [00:00<00:00, 584.16it/s] 21%|██        | 121/572 [00:00<00:00, 601.20it/s] 32%|███▏      | 183/572 [00:00<00:00, 608.24it/s] 43%|████▎     | 246/572 [00:00<00:00, 613.60it/s] 54%|█████▍    | 309/572 [00:00<00:00, 618.23it/s] 65%|██████▍   | 371/572 [00:00<00:00, 617.51it/s] 76%|███████▌  | 434/572 [00:00<00:00, 618.84it/s] 87%|████████▋ | 496/572 [00:00<00:00, 618.43it/s] 98%|█████████▊| 559/572 [00:00<00:00, 621.99it/s]100%|██████████| 572/572 [00:00<00:00, 616.43it/s]
+2025-02-04:17:08:08,374 INFO     [evaluator.py:513] Running loglikelihood requests
+Running loglikelihood requests:   0%|          | 0/1144 [00:00<?, ?it/s]2025-02-04:17:08:45,154 WARNING  [huggingface.py:1122] Combined length of context (7584) and continuation (1) exceeds model's maximum length (2048). Truncating 5538 tokens from the left.
+2025-02-04:17:08:45,155 WARNING  [huggingface.py:1122] Combined length of context (7578) and continuation (1) exceeds model's maximum length (2048). Truncating 5532 tokens from the left.
+2025-02-04:17:08:45,190 WARNING  [huggingface.py:1122] Combined length of context (5249) and continuation (1) exceeds model's maximum length (2048). Truncating 3203 tokens from the left.
+2025-02-04:17:08:45,194 WARNING  [huggingface.py:1122] Combined length of context (4737) and continuation (1) exceeds model's maximum length (2048). Truncating 2691 tokens from the left.
+2025-02-04:17:08:45,200 WARNING  [huggingface.py:1122] Combined length of context (4361) and continuation (1) exceeds model's maximum length (2048). Truncating 2315 tokens from the left.
+2025-02-04:17:08:45,204 WARNING  [huggingface.py:1122] Combined length of context (4246) and continuation (1) exceeds model's maximum length (2048). Truncating 2200 tokens from the left.
+2025-02-04:17:08:45,209 WARNING  [huggingface.py:1122] Combined length of context (3999) and continuation (1) exceeds model's maximum length (2048). Truncating 1953 tokens from the left.
+2025-02-04:17:08:45,213 WARNING  [huggingface.py:1122] Combined length of context (3679) and continuation (1) exceeds model's maximum length (2048). Truncating 1633 tokens from the left.
+2025-02-04:17:08:45,218 WARNING  [huggingface.py:1122] Combined length of context (3663) and continuation (1) exceeds model's maximum length (2048). Truncating 1617 tokens from the left.
+2025-02-04:17:08:45,220 WARNING  [huggingface.py:1122] Combined length of context (3520) and continuation (1) exceeds model's maximum length (2048). Truncating 1474 tokens from the left.
+2025-02-04:17:08:45,223 WARNING  [huggingface.py:1122] Combined length of context (3316) and continuation (1) exceeds model's maximum length (2048). Truncating 1270 tokens from the left.
+2025-02-04:17:08:45,225 WARNING  [huggingface.py:1122] Combined length of context (3295) and continuation (1) exceeds model's maximum length (2048). Truncating 1249 tokens from the left.
+2025-02-04:17:08:45,226 WARNING  [huggingface.py:1122] Combined length of context (3090) and continuation (1) exceeds model's maximum length (2048). Truncating 1044 tokens from the left.
+2025-02-04:17:08:45,228 WARNING  [huggingface.py:1122] Combined length of context (2962) and continuation (1) exceeds model's maximum length (2048). Truncating 916 tokens from the left.
+2025-02-04:17:08:45,239 WARNING  [huggingface.py:1122] Combined length of context (2873) and continuation (1) exceeds model's maximum length (2048). Truncating 827 tokens from the left.
+2025-02-04:17:08:45,241 WARNING  [huggingface.py:1122] Combined length of context (2868) and continuation (1) exceeds model's maximum length (2048). Truncating 822 tokens from the left.
+2025-02-04:17:08:45,246 WARNING  [huggingface.py:1122] Combined length of context (2786) and continuation (1) exceeds model's maximum length (2048). Truncating 740 tokens from the left.
+2025-02-04:17:08:45,248 WARNING  [huggingface.py:1122] Combined length of context (2745) and continuation (1) exceeds model's maximum length (2048). Truncating 699 tokens from the left.
+2025-02-04:17:08:45,255 WARNING  [huggingface.py:1122] Combined length of context (2720) and continuation (1) exceeds model's maximum length (2048). Truncating 674 tokens from the left.
+2025-02-04:17:08:45,257 WARNING  [huggingface.py:1122] Combined length of context (2719) and continuation (1) exceeds model's maximum length (2048). Truncating 673 tokens from the left.
+2025-02-04:17:08:45,261 WARNING  [huggingface.py:1122] Combined length of context (2694) and continuation (1) exceeds model's maximum length (2048). Truncating 648 tokens from the left.
+2025-02-04:17:08:45,263 WARNING  [huggingface.py:1122] Combined length of context (2645) and continuation (1) exceeds model's maximum length (2048). Truncating 599 tokens from the left.
+2025-02-04:17:08:45,271 WARNING  [huggingface.py:1122] Combined length of context (2630) and continuation (1) exceeds model's maximum length (2048). Truncating 584 tokens from the left.
+2025-02-04:17:08:45,273 WARNING  [huggingface.py:1122] Combined length of context (2595) and continuation (1) exceeds model's maximum length (2048). Truncating 549 tokens from the left.
+2025-02-04:17:08:45,274 WARNING  [huggingface.py:1122] Combined length of context (2519) and continuation (1) exceeds model's maximum length (2048). Truncating 473 tokens from the left.
+2025-02-04:17:08:45,279 WARNING  [huggingface.py:1122] Combined length of context (2498) and continuation (1) exceeds model's maximum length (2048). Truncating 452 tokens from the left.
+2025-02-04:17:08:45,280 WARNING  [huggingface.py:1122] Combined length of context (2498) and continuation (1) exceeds model's maximum length (2048). Truncating 452 tokens from the left.
+2025-02-04:17:08:45,282 WARNING  [huggingface.py:1122] Combined length of context (2498) and continuation (1) exceeds model's maximum length (2048). Truncating 452 tokens from the left.
+2025-02-04:17:08:45,284 WARNING  [huggingface.py:1122] Combined length of context (2497) and continuation (1) exceeds model's maximum length (2048). Truncating 451 tokens from the left.
+2025-02-04:17:08:45,285 WARNING  [huggingface.py:1122] Combined length of context (2478) and continuation (1) exceeds model's maximum length (2048). Truncating 432 tokens from the left.
+2025-02-04:17:08:45,287 WARNING  [huggingface.py:1122] Combined length of context (2475) and continuation (1) exceeds model's maximum length (2048). Truncating 429 tokens from the left.
+2025-02-04:17:08:45,294 WARNING  [huggingface.py:1122] Combined length of context (2471) and continuation (1) exceeds model's maximum length (2048). Truncating 425 tokens from the left.
+Running loglikelihood requests:   0%|          | 1/1144 [00:32<10:11:20, 32.09s/it]2025-02-04:17:09:15,793 WARNING  [huggingface.py:1122] Combined length of context (2446) and continuation (1) exceeds model's maximum length (2048). Truncating 400 tokens from the left.
+2025-02-04:17:09:15,794 WARNING  [huggingface.py:1122] Combined length of context (2404) and continuation (1) exceeds model's maximum length (2048). Truncating 358 tokens from the left.
+2025-02-04:17:09:15,889 WARNING  [huggingface.py:1122] Combined length of context (2352) and continuation (1) exceeds model's maximum length (2048). Truncating 306 tokens from the left.
+2025-02-04:17:09:15,898 WARNING  [huggingface.py:1122] Combined length of context (2324) and continuation (1) exceeds model's maximum length (2048). Truncating 278 tokens from the left.
+2025-02-04:17:09:15,907 WARNING  [huggingface.py:1122] Combined length of context (2295) and continuation (1) exceeds model's maximum length (2048). Truncating 249 tokens from the left.
+2025-02-04:17:09:15,912 WARNING  [huggingface.py:1122] Combined length of context (2293) and continuation (1) exceeds model's maximum length (2048). Truncating 247 tokens from the left.
+2025-02-04:17:09:15,923 WARNING  [huggingface.py:1122] Combined length of context (2248) and continuation (1) exceeds model's maximum length (2048). Truncating 202 tokens from the left.
+2025-02-04:17:09:15,928 WARNING  [huggingface.py:1122] Combined length of context (2227) and continuation (1) exceeds model's maximum length (2048). Truncating 181 tokens from the left.
+2025-02-04:17:09:15,934 WARNING  [huggingface.py:1122] Combined length of context (2218) and continuation (1) exceeds model's maximum length (2048). Truncating 172 tokens from the left.
+2025-02-04:17:09:15,938 WARNING  [huggingface.py:1122] Combined length of context (2203) and continuation (1) exceeds model's maximum length (2048). Truncating 157 tokens from the left.
+2025-02-04:17:09:15,941 WARNING  [huggingface.py:1122] Combined length of context (2198) and continuation (1) exceeds model's maximum length (2048). Truncating 152 tokens from the left.
+2025-02-04:17:09:15,944 WARNING  [huggingface.py:1122] Combined length of context (2185) and continuation (1) exceeds model's maximum length (2048). Truncating 139 tokens from the left.
+2025-02-04:17:09:15,947 WARNING  [huggingface.py:1122] Combined length of context (2118) and continuation (1) exceeds model's maximum length (2048). Truncating 72 tokens from the left.
+2025-02-04:17:09:15,949 WARNING  [huggingface.py:1122] Combined length of context (2116) and continuation (1) exceeds model's maximum length (2048). Truncating 70 tokens from the left.
+2025-02-04:17:09:15,957 WARNING  [huggingface.py:1122] Combined length of context (2072) and continuation (1) exceeds model's maximum length (2048). Truncating 26 tokens from the left.
+Running loglikelihood requests:   6%|▌         | 65/1144 [01:02<14:46,  1.22it/s]  Running loglikelihood requests:  11%|█▏        | 129/1144 [01:29<09:57,  1.70it/s]Running loglikelihood requests:  17%|█▋        | 193/1144 [01:58<08:20,  1.90it/s]Running loglikelihood requests:  22%|██▏       | 257/1144 [02:26<07:15,  2.04it/s]Running loglikelihood requests:  28%|██▊       | 321/1144 [02:57<06:40,  2.06it/s]Running loglikelihood requests:  39%|███▉      | 449/1144 [03:01<02:58,  3.89it/s]Running loglikelihood requests:  50%|█████     | 577/1144 [03:05<01:31,  6.23it/s]Running loglikelihood requests:  62%|██████▏   | 705/1144 [03:08<00:47,  9.21it/s]Running loglikelihood requests:  73%|███████▎  | 833/1144 [03:10<00:23, 12.97it/s]Running loglikelihood requests:  84%|████████▍ | 961/1144 [03:12<00:10, 17.78it/s]Running loglikelihood requests:  95%|█████████▌| 1089/1144 [03:12<00:02, 25.34it/s]Running loglikelihood requests: 100%|██████████| 1144/1144 [03:12<00:00,  5.93it/s]
+2025-02-04:17:11:37,362 INFO     [evaluation_tracker.py:269] Output path not provided, skipping saving results aggregated
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 32
+Passed argument batch_size = auto:16.0. Detecting largest batch size
+Determined largest batch size: 64
+hf (pretrained=EleutherAI/pythia-2.8b,trust_remote_code=True,parallelize=True,max_length=2048,trust_remote_code=True), gen_kwargs: (None), limit: 1000.0, num_fewshot: None, batch_size: auto:16 (32,32,32,32,32,64,64,64,64,64,64,64,64,64,64,64,64)
+|       Tasks        |Version|Filter|n-shot|Metric|   |Value |   |Stderr|
+|--------------------|------:|------|-----:|------|---|-----:|---|------|
+|iberlef_fakedes_2021|      1|none  |     0|acc   |↑  |0.5087|±  |0.0209|
+|                    |       |none  |     0|f1    |↑  |0.3745|±  |   N/A|
+

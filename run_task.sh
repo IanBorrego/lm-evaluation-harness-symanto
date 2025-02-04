@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tasks=("vaxxstance_2021")
+tasks=("iberlef_fakedes_2021")
 
 for task in "${tasks[@]}"; do
     start_time=$(date +%s)  # Record the start time
