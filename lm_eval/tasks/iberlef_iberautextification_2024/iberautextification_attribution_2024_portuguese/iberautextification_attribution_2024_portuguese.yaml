@@ -1,0 +1,19 @@
+tag: iberlef_iberautextification_2024
+task: iberautextification_attribution_2024_portuguese
+dataset_path: iberbench/iberlef_iberautextification_attribution_2024_portuguese # the name of the dataset on the HF Hub.
+description: "Iberautextification has 2 subtasks, this one is towards model attribution. Detect which model generated the given text" # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
+
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "An Language Model has been prompted on a certain domain and generated the following text:\ngenerated text: {{text}}\n\nGiven prompt: {{prompt}}\ndomain: {{domain}}\n\nwhich model was used to generate the text?\n\nAnswer:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["meta-llama/Llama-2-70b-chat-hf", "cohere.command-text-v14","ai21.j2-ultra-v1","gpt-3.5-turbo-instruct","mistralai/Mixtral-8x7B-Instruct-v0.1","gpt-4"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tasks=("iberlef_fakedes_2021")
+tasks=("iberlef_iberautextification_2024")
 
 for task in "${tasks[@]}"; do
     start_time=$(date +%s)  # Record the start time
