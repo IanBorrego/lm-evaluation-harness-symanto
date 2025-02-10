@@ -1,5 +1,5 @@
 tag: vaxxstance_2021
-task: vaxxstance_spanish
+task: vaxxstance_spanish_2021
 dataset_path: iberbench/iberlef_vaxxstance_2021_spanish # the name of the dataset on the HF Hub.
 description: "stance detection in social media in spanish, specifically targeting opinions on the Antivaxxers movement." # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
 
