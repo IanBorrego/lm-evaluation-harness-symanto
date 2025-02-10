@@ -1,6 +1,7 @@
 from datasets import load_dataset
 import os
 import json
+import yaml
 import subprocess
 import pandas as pd
 import argparse
@@ -74,9 +75,11 @@ def main(ix: int, batch_size: int, output_path: str):
     # read user request dataset
     ds_input = load_dataset(user_data, split="train", token=True, download_mode="force_redownload")
 
-    # TODO: update with final datasetlist
-    task_list = ["tass_costa_rica", "tass_mexico", "tass_peru", "tass_spain", "tass_uruguay"]
-    record_info = ds_input[ix]
+    # read ivace tasks
+    with open("config/tasks.yml", "r") as file:
+        data = yaml.safe_load(file)
+
+    tasks_list = data.get("tasks", [])
 
     # check if the model is already evaluated
     if not check_evaluation(record_info["model_name"], results_data):
@@ -126,4 +129,3 @@ if __name__ == "__main__":
     # run process
     args = parser.parse_args()
     main(args.id, args.batch_size, args.output_path)
-
