@@ -1,4 +1,4 @@
-task: iberlef_parmex_2022
+task: iberbench/iberlef_parmex_2022_spanish
 dataset_path: iberbench/iberlef_parmex_2022_spanish # the name of the dataset on the HF Hub.
 description: "Classifying if the given sentences are similar or dissimilar"
 
