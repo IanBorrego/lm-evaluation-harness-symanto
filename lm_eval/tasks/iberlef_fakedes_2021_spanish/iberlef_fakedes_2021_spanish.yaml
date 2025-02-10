@@ -1,4 +1,4 @@
-task: iberlef_fakedes_2021
+task: iberlef_fakedes_2021_spanish
 dataset_path: iberbench/iberlef_fakedes_2021_spanish # the name of the dataset on the HF Hub.
 description: "Classifying news articles, with their source and headline, as fake or true."
 
