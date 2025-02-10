@@ -12,7 +12,7 @@ from huggingface_hub.utils import HfHubHTTPError
 def check_evaluation(model_name, dataset_results):
     try:
         create_repo(dataset_results, repo_type="dataset", private=True)
-        return False
+        return True
     except HfHubHTTPError:
         dataset = load_dataset(dataset_results, split="train", token=True, download_mode="force_redownload")
         return model_name in dataset["model_name"]
@@ -74,12 +74,15 @@ def main(ix: int, batch_size: int, output_path: str):
 
     # read user request dataset
     ds_input = load_dataset(user_data, split="train", token=True, download_mode="force_redownload")
+    record_info = ds_input[ix]
 
     # read ivace tasks
-    with open("config/tasks.yml", "r") as file:
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, "config", "tasks.yml")
+    with open(file_path, "r") as file:
         data = yaml.safe_load(file)
 
-    tasks_list = data.get("tasks", [])
+    task_list = data.get("tasks", [])
 
     # check if the model is already evaluated
     if not check_evaluation(record_info["model_name"], results_data):
