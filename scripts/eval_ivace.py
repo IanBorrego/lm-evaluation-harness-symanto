@@ -1,18 +1,20 @@
-from datasets import load_dataset
 import os
 import json
-import yaml
 import subprocess
-import pandas as pd
 import argparse
-from datasets import Dataset
+import time
+
+import yaml
+import pandas as pd
+from datasets import load_dataset, Dataset
 from huggingface_hub import create_repo, delete_repo
 from huggingface_hub.utils import HfHubHTTPError
 
-def check_evaluation(model_name, dataset_results):
+
+def is_evaluated(model_name, dataset_results):
     try:
         create_repo(dataset_results, repo_type="dataset", private=True)
-        return True
+        return False
     except HfHubHTTPError:
         dataset = load_dataset(dataset_results, split="train", token=True, download_mode="force_redownload")
         return model_name in dataset["model_name"]
@@ -52,17 +54,23 @@ def extract_score_and_create_summary(ds_input, task_list, model_name, model_type
     except HfHubHTTPError:
         print(f"Updating repository {results_data}")
         dataset = load_dataset(results_data, split="train", token=True, download_mode="force_redownload")
-        # append the new row to the dataset
-        updated_data = dataset.to_pandas().reset_index(drop=True)
-        updated_data = pd.concat([updated_data, pd.DataFrame([new_row])], ignore_index=True)
+        if len(dataset) == 0:
+            updated_data = pd.DataFrame([new_row])
+        else:
+            # append the new row to the dataset
+            updated_data = dataset.to_pandas().reset_index(drop=True)
+            updated_data = pd.concat([updated_data, pd.DataFrame([new_row])], ignore_index=True)
 
     # push the updated dataset back to the Hub
     updated_dataset = Dataset.from_pandas(updated_data)
+    print(updated_dataset.to_pandas())
     updated_dataset.push_to_hub(results_data, private=True)
     print(f"1. Successfully updated the dataset on the Hugging Face Hub: {results_data}")
 
     # remove request from input user data
+    print(ds_input.to_pandas())
     delete_repo(repo_id=user_data, repo_type="dataset")
+    time.sleep(1)
     create_repo(user_data, repo_type="dataset", private=True)
     ds_input.push_to_hub(user_data, private=True)
     print(f"Successfully updated the user request data on the Hugging Face Hub: {user_data}")
@@ -85,7 +93,7 @@ def main(ix: int, batch_size: int, output_path: str):
     task_list = data.get("tasks", [])
 
     # check if the model is already evaluated
-    if not check_evaluation(record_info["model_name"], results_data):
+    if is_evaluated(record_info["model_name"], results_data):
         raise ValueError(f"{record_info['model_name']} was already evaluated")
 
     # filter input_dataset
