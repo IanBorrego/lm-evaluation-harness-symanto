@@ -2,9 +2,7 @@
 
 Token classification datasets can be of many different forms, but here we assume that we have a dataset of texts with labels at word-level, either IOB scheme for tasks like Named Entity Recognition or aspect detection, or non-IOB scheme for tasks like POS Tagging.
 
-If your dataset does not meet this, you will have to preprocess it.
-
-Let's start with IOB tagging for Named Entity Recognition
+If your dataset does not meet this assumption, you will have to preprocess it.
 
 # Working with IOB scheme
 
@@ -135,6 +133,12 @@ The evaluation metric `iberbench_seqeval` will be applied, which basically calls
 
 Differently from IOB scheme, here, each word is marked with tags. For instance, \<DET\> the \</DET\> \<NOUN\> dog \</NOUN\> \<VERB\> is \</VERB\> \<ADJ\> red \</ADJ\>.
 As with IOB scheme, these in-text annotated examples are then our labels.
+
+> [!IMPORTANT]  
+> Note that we are using tags to annotate within the text. So, if your text contain this kind of tags, this method will not work well. It is highly recommended to remove these characters from your dataset for tagging tasks.
+
+> [!IMPORTANT]  
+> It is very recommended for the texts in your dataset to contain punctuation symbols separated by a whitespace from content words. For instance, "Apple, the company is one of the richest.", can lead to tagging errors since the LLMs typically consider "," or "." as separate tokens. You can use `nltk.word_tokenize` to go from that to "Apple , the company is one of the richest ."
 
 ```python
 # A few training examples from your dataset to be used as few-shot examples in LM Eval Harness
