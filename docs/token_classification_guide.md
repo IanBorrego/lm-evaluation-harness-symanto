@@ -19,7 +19,7 @@ These in-text annotated examples are then our labels, and we can reconstruct lat
 > Note that we are using tags to annotate within the text. So, if your text contain this kind of tags, this method will not work well. It is highly recommended to remove these characters from your dataset for tagging tasks.
 
 > [!IMPORTANT]  
-> It is very recommended for the texts in your dataset to contain separation symbols separated by a whitespace from content words. For instance, "Apple, the company is one of the richest.", can lead to tagging errors since the LLMs typically consider "," or "." as separate tokens. You can use `nltk.word_tokenize` to go from that to "Apple , the company is one of the richest ."
+> It is very recommended for the texts in your dataset to contain punctuation symbols separated by a whitespace from content words. For instance, "Apple, the company is one of the richest.", can lead to tagging errors since the LLMs typically consider "," or "." as separate tokens. You can use `nltk.word_tokenize` to go from that to "Apple , the company is one of the richest ."
 
 ```python
 # A few training examples from your dataset to be used as few-shot examples in LM Eval Harness
@@ -192,7 +192,7 @@ Here, we have our dataset already prepared to be used through LM Eval Harness.
 
 ## Creating a YAML config for non-IOB datasets
 
-It is defined in the same way than for IOB datasets, with a single difference, here `is_iob` must be set as `False`. Also, remember to remember the LLM to wrap each word 😛:
+It is defined in the same way than for IOB datasets, with a single difference, here `is_iob` must be set to `false`. Also, remember to remember the LLM to wrap each word 😛:
 
 ```yaml
 task: tagging_iberbench

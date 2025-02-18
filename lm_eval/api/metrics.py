@@ -139,7 +139,7 @@ def iberbench_seqeval(references, predictions, is_iob):
     try:
         return seqeval.compute(predictions=predictions, references=references)["overall_f1"]
     except:
-        # If seqeval raises an erroris because the length of the
+        # If seqeval raises an error is because the length of the
         # prediction do not match the length of the gold standard,
         # which is the minimum an LLM has to do well to act as a
         # token classification model.
