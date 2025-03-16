@@ -131,13 +131,13 @@ def get_model_results(model_name: str) -> dict:
 
 def load_results_dataset() -> Optional[Dataset]:
     """
-    Load the results dataset from the hub repository,
-    avoiding to load it from the cache forcing always
-    a fresh download from the hub.
+    Load the results dataset from the `lm-eval-results`
+    repository, avoiding to load it from the cache by
+    forcing always a fresh download from the hub.
 
     Returns:
-        Optional[Dataset]: None if the hub repository does not exist or if it is empty.
-                           The results dataset otherwise.
+        Optional[Dataset]: None if the hub repository does not exist or
+                           if it is empty. The results dataset otherwise.
     """
     client = HfApi()
     exist_dataset = (
@@ -173,8 +173,8 @@ def update_hub_results(model_name: str) -> None:
     2) Otherwise (the results repository exists):
     2.1) If the model exists, the we check if there are new tasks in local
          that are not included in the results repository. If so, we add
-         the new columns with None values for all the other models, and
-         update the row with the new results for the `model_name` model.
+         the new columns with None values for all the other models and
+         update the row with the new results for this model.
     2.2) If the model do not exist, then it is added a new row with its
          results into the results repository.
 
@@ -208,16 +208,17 @@ def update_hub_results(model_name: str) -> None:
             if len(new_tasks) > 0:
                 print("Adding new tasks to the hub dataset:", new_tasks)
                 results_dataset = results_dataset.map(
-                    lambda example: example
-                    | {feature: None for feature in new_tasks}
+                    lambda example: {feature: None for feature in new_tasks}
+                    | example
                 )
-            # And then assign the values of this model
-            # which is including values for new tasks
+            # And then assign the scores of this model
+            # which includes scores for new tasks
             model_results = model_prev_results[0] | model_results
             results_dataset = results_dataset.to_pandas()
-            results_dataset.loc[results_dataset["model_name"] == model_name] = (
-                pd.DataFrame([model_results])
-            )
+            model_index = results_dataset[
+                results_dataset["model_name"] == model_name
+            ].index
+            results_dataset.iloc[model_index, :] = pd.DataFrame([model_results])
             results_dataset = Dataset.from_pandas(results_dataset)
         # If the model doesn't exist, just add the row
         else:
@@ -228,9 +229,7 @@ def update_hub_results(model_name: str) -> None:
     # Push the dataset to the hub
     create_hf_results_repo()
     results_dataset.push_to_hub(RESULTS_DATASET, private=True)
-    print(
-        f"Successfully updated the dataset on the hub: {RESULTS_DATASET}"
-    )
+    print(f"Successfully updated the dataset on the hub: {RESULTS_DATASET}")
 
 
 def get_pending_tasks(model_name: str, task_list: list[str]) -> list[str]:
