@@ -15,3 +15,8 @@ tasks:
   - iberlef-exist-sexism_detection-2021-spanish
   - iberlef-emoevales-offensiveness_detection-2021-spanish
   - iberlef-exist-sexism_categorization-2021-spanish
+  - iberlef-emoevales-emotion_analysis-2021-spanish
+  - iberlef-fakedes-fake_news_detection-2021-spanish
+  - iberlef-haha-humor_detection-2021-spanish
+  - iberlef-haha-humor_detection-2019-spanish
+  - iberlef-huhu-racial_prejudice_detection-2023-spanish
