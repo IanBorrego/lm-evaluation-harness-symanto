@@ -9,3 +9,9 @@ tasks:
   - iberlef-detoxis-aggressiveness_detection-2021-spanish
   - iberlef-detoxis-improper_language_detection-2021-spanish
   - iberlef-detoxis-toxicity_detection-2021-spanish
+  - iberlef-detoxis-sarcasm_detection-2021-spanish
+  - iberlef-detoxis-insult_detection-2021-spanish
+  - iberlef-detoxis-mockery_detection-2021-spanish
+  - iberlef-exist-sexism_detection-2021-spanish
+  - iberlef-emoevales-offensiveness_detection-2021-spanish
+  - iberlef-exist-sexism_categorization-2021-spanish
