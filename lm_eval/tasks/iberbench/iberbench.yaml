@@ -1,9 +1,9 @@
 tasks:
   - tass-tass-sentiment_analysis-2020-spanish-costa_rica
   - tass-tass-sentiment_analysis-2020-spanish-mexico
-  # - tass-tass-sentiment_analysis-2020-spanish-spain
-  #- tass-tass-sentiment_analysis-2020-spanish-peru
-  #- tass-tass-sentiment_analysis-2020-spanish-uruguay
-  #- tass-tass-emotion_analysis-2020-spanish
-  #- iberlef-detests_dis-stereotype_detection-2024-spanish
-  # - iberlef-detoxis-aggressiveness_detection-2021-spanish
+  - tass-tass-sentiment_analysis-2020-spanish-spain
+  - tass-tass-sentiment_analysis-2020-spanish-peru
+  - tass-tass-sentiment_analysis-2020-spanish-uruguay
+  - tass-tass-emotion_analysis-2020-spanish
+  - iberlef-detests_dis-stereotype_detection-2024-spanish
+  - iberlef-detoxis-aggressiveness_detection-2021-spanish
