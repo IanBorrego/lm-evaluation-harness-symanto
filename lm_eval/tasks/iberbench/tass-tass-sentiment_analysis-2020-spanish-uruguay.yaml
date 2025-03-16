@@ -1,13 +1,13 @@
-task: tass-tass-sentiment_analysis-2020-spanish-mexico
+task: tass-tass-sentiment_analysis-2020-spanish-uruguay
 tag:
   - iberbench
   - tass
   - sentiment_analysis
   - "2020"
   - spanish
-  - mexico
+  - uruguay
 
-dataset_path: iberbench/tass-tass-sentiment_analysis-2020-spanish-mexico
+dataset_path: iberbench/tass-tass-sentiment_analysis-2020-spanish-uruguay
 description: "Clasifica el sentimento del siguiente tweet en negativo, neutro o positivo.\n"
 
 output_type: multiple_choice
