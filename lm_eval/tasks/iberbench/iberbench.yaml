@@ -20,3 +20,7 @@ tasks:
   - iberlef-haha-humor_detection-2021-spanish
   - iberlef-haha-humor_detection-2019-spanish
   - iberlef-huhu-racial_prejudice_detection-2023-spanish
+  - iberlef-huhu-women_prejudice_detection-2023-spanish
+  - iberlef-huhu-lgtbiq_prejudice_detection-2023-spanish
+  - iberlef-huhu-fatphobia_detection-2023-spanish
+  - iberlef-huhu-humor_detection-2023-spanish
