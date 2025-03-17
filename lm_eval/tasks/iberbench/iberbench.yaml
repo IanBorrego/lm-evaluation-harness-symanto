@@ -25,3 +25,14 @@ tasks:
   - iberlef-huhu-fatphobia_detection-2023-spanish
   - iberlef-huhu-humor_detection-2023-spanish
   - iberlef-iberautextification-machine_generated_text_detection-2024-galician
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-english
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-spanish
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-basque
+  - iberlef-iberautextification-machine_generated_text_detection-2024-catalan
+  - iberlef-iberautextification-machine_generated_text_detection-2024-english
+  - iberlef-iberautextification-machine_generated_text_detection-2024-portuguese
+  - iberlef-iberautextification-machine_generated_text_detection-2024-basque
+  - iberlef-iberautextification-machine_generated_text_detection-2024-spanish
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-portuguese
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-catalan
+  - iberlef-iberautextification-machine_generated_text_attribution-2024-galician
