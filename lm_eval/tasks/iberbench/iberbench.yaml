@@ -36,3 +36,21 @@ tasks:
   - iberlef-iberautextification-machine_generated_text_attribution-2024-portuguese
   - iberlef-iberautextification-machine_generated_text_attribution-2024-catalan
   - iberlef-iberautextification-machine_generated_text_attribution-2024-galician
+  - iberlef-irosva-irony_detection-2019-spanish-cuba
+  - iberlef-irosva-irony_detection-2019-spanish-mexico
+  - iberlef-irosva-irony_detection-2019-spanish-spain
+  - iberlef-mentalriskes-eating_disorder_detection-2023-spanish
+  - iberlef-restmex-sentiment_analysis-2022-spanish-mexico
+  - iberlef-vaxxstance-stance_detection-2021-spanish
+  - iberlef-vaxxstance-stance_detection-2021-basque
+  - iberlef-restmex-sentiment_analysis-2021-spanish-mexico
+  - ibereval-multistancecat-stance_detection-2018-spanish
+  - iberlef-mex_a3t-aggressiveness_detection-2019-spanish-mexico
+  - tweetlid-tweetlid-language_identification-2014-spanish
+  - iberlef-parmex-paraphrase_detection-2022-spanish-mexico
+  - iberlef-meoffendes-offensiveness_detection-2021-spanish
+  - iberlef-meoffendes-gender_detection-2021-spanish
+  - iberlef-mentalriskes-depression_detection-2023-spanish
+  - ibereval-multistancecat-stance_detection-2018-catalan
+  - iberlef-mentalriskes-depression_categorization-2023-spanish
+  - iberlef-restmex-gender_detection-2021-spanish-mexico
