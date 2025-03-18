@@ -54,3 +54,4 @@ tasks:
   - ibereval-multistancecat-stance_detection-2018-catalan
   - iberlef-mentalriskes-depression_categorization-2023-spanish
   - iberlef-restmex-gender_detection-2021-spanish-mexico
+  - iberlef-adobo-lexical_borrowing_chunking-2021-spanish
