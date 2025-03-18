@@ -8,7 +8,7 @@ tag:
   - mexico
 
 dataset_path: iberbench/iberlef-restmex-sentiment_analysis-2022-spanish-mexico
-description: "Dada una opinión sobre un lugar turístico mexicano, el objetivo es determinar la valoración del lugar en una escala del 1 al 5.\n"
+description: "Dada una opinión sobre un lugar turístico mexicano, el objetivo es determinar la valoración del lugar en una escala del 1 (muy negativa) al 5 (muy positiva).\n"
 output_type: multiple_choice
 training_split: train
 test_split: test
