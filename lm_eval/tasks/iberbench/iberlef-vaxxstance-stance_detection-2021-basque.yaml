@@ -7,7 +7,7 @@ tag:
   - basque
 
 dataset_path: iberbench/iberlef-vaxxstance-stance_detection-2021-basque
-description: "Zehaztu hurrengo testuaren jarrera txertoen inguruan: alde, aurka edo neutroa.\n"
+description: "Zehaztu testu honek txertoei buruz duen posizioa: neutroa, aldekoa edo kontrakoa.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test

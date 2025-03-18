@@ -11,9 +11,9 @@ description: "Determina si los mensajes de esta persona indican que sufre depres
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Mensajes del usuario: {{text}}\nCual es la postura de esta persona con respecto a la depresión?:"
+doc_to_text: "Mensajes: {{text}}\n¿Cuál es la postura de esta persona con respecto a la depresión?:"
 doc_to_target: !function utils.convert_label_to_int
-doc_to_choice: ["not depressive", "depressive and in favour of depression","depressive and against depression","depressive and neither for nor against depression"]
+doc_to_choice: ["depresivo", "depresivo y a favor de la depresión", "depresivo y en contra de la depresión", "depresivo y ni en contra ni a favor de la depresión"]
 metric_list:
   - metric: acc
     aggregation: mean

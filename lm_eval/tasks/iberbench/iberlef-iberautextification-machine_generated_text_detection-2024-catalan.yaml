@@ -7,11 +7,11 @@ tag:
   - catalan
 
 dataset_path: iberbench/iberlef-iberautextification-machine_generated_text_detection-2024-catalan
-description: "Determina si el següent text ha estat generat per un model d'intel·ligència artificial o per un humà.\n"
+description: "Determina si el següent text ha sigut generat per un model d'intel·ligència artificial o per un humà.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Text: {{text}}\nHa estat generat per un model d'intel·ligència artificial o per un humà?:"
+doc_to_text: "Text: {{text}}\nHa sigut generat per un model d'intel·ligència artificial o per un humà?:"
 doc_to_target: !function utils.convert_label_to_int
 doc_to_choice: ["humà", "generat"]
 metric_list:

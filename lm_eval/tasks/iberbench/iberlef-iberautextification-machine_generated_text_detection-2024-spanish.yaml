@@ -11,7 +11,7 @@ description: "Determina si el siguiente texto ha sido generado por un modelo de 
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Texto: {{text}}\nHa sido generado por un modelo de inteligencia artificial o por un humano?:"
+doc_to_text: "Texto: {{text}}\n¿Ha sido generado por un modelo de inteligencia artificial o por un humano?:"
 doc_to_target: !function utils.convert_label_to_int
 doc_to_choice: ["humano", "generado"]
 metric_list:

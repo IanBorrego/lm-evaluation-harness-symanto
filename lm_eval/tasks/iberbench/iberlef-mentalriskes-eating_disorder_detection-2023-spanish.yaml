@@ -7,13 +7,13 @@ tag:
   - spanish
 
 dataset_path: iberbench/iberlef-mentalriskes-eating_disorder_detection-2023-spanish
-description: "Determina si los mensajes de esta persona indican que sufre de un trastorno alimenticio como anorexia o bulimia.\n"
+description: "Determina si los mensajes de esta persona sugieren que sufre de un trastorno alimenticio como anorexia o bulimia.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Mensaje: {{text}}\nEste mensaje sugiere que la persona sufre de un trastorno alimenticio como anorexia o bulimia?:"
+doc_to_text: "Mensajes: {{text}}\n¿Estos mensajes sugieren que la persona sufre de un trastorno alimenticio como anorexia o bulimia?:"
 doc_to_target: !function utils.convert_label_to_int
-doc_to_choice: ["no sufre un trastorno alimenticio", "sufre un trastorno alimenticio"]
+doc_to_choice: ["no", "sí"]
 metric_list:
   - metric: acc
     aggregation: mean
