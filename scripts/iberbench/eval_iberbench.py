@@ -117,8 +117,10 @@ def get_model_results(model_name: str) -> dict:
 
     results = content["results"]
     for task in results:
-        model_results[task] = results[task]["f1,none"]
-
+        if "f1,none" in results[task]:
+            model_results[task] = results[task]["f1,none"]
+        else:
+            model_results[task] = results[task]["iberbench_seqeval,none"]
     # Remove the json file to avoid inconsistencies
     # We have to be careful with this, so let's add
     # redundant checkers to ensure it is a real file
