@@ -80,3 +80,7 @@ tasks:
   - general-xnli-textual_entailment-2024-spanish
   - pan-author_profiling-age_detection-2015-spanish
   - pan-author_profiling-gender_detection-2017-spanish
+  - general-galcola-linguistic_acceptability-2024-galician
+  - general-paws_gl-paraphrase_detection-2019-galician
+  - general-xnli-textual_entailment-2024-galician
+  - general-xstorycloze-question_answering-2024-galician
