@@ -1,3 +1,6 @@
+# This config does not meet the format of lm-eval-harness for the sake
+# of dynamically updating tasks and checking easily in IberBench what
+# tasks are pending or complete for a given model.
 tasks:
   - tass-tass-sentiment_analysis-2020-spanish-costa_rica
   - tass-tass-sentiment_analysis-2020-spanish-mexico
@@ -84,3 +87,8 @@ tasks:
   - general-paws_gl-paraphrase_detection-2019-galician
   - general-xnli-textual_entailment-2024-galician
   - general-xstorycloze-question_answering-2024-galician
+  - general-belebele-reading_comprehension-2024-portuguese
+  - general-hate_check-hate_speech_detection-2024-portuguese
+  - general-paws_pt-paraphrase_detection-2019-portuguese
+  - general-xlsum-text_summarization-2021-portuguese
+  - general-xstorycloze-question_answering-2024-portuguese
