@@ -1,17 +1,17 @@
-task: general-copa_es-commonsense_reasoning-2024-spanish
+task: general-xstorycloze-question_answering-2024-catalan
 tag:
   - iberbench
   - general
-  - commonsense_reasoning
+  - question_answering
   - "2024"
-  - spanish
+  - catalan
 
-dataset_path: iberbench/general-copa_es-commonsense_reasoning-2024-spanish
-description: "Elige la alternativa más correcta dada la premisa.\n"
+dataset_path: iberbench/general-xstorycloze-question_answering-2024-catalan
+description: "Selecciona la millor opció per completar el text.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Premisa: {{premise}}\nA: {{choice1}}\nB: {{choice2}}\nRespuesta:"
+doc_to_text: "Text: {{text}}\nA: {{choice1}}\nB: {{choice2}}\nResposta:"
 doc_to_target: !function utils.convert_label_to_int
 doc_to_choice: ["A", "B"]
 metric_list:

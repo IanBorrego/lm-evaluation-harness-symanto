@@ -7,7 +7,7 @@ tag:
   - galician
 
 dataset_path: iberbench/general-galcola-linguistic_acceptability-2024-galician
-description: "Determina se a seguinte oración ten sentido.\n"
+description: "Determina se a seguinte oración é correcta en galego.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test

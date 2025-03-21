@@ -1,17 +1,17 @@
-task: general-escola-linguistic_acceptability-2024-spanish
+task: general-catcola-linguistic_acceptability-2024-catalan
 tag:
   - iberbench
   - general
   - linguistic_acceptability
   - "2024"
-  - spanish
+  - catalan
 
-dataset_path: iberbench/general-escola-linguistic_acceptability-2024-spanish
-description: "Determina si la siguiente frase es correcta en español.\n"
+dataset_path: iberbench/general-catcola-linguistic_acceptability-2024-catalan
+description: "Determina si la frase següent és correcta en català.\n"
 output_type: multiple_choice
 training_split: train
 test_split: test
-doc_to_text: "Frase: {{text}}\nRespuesta:"
+doc_to_text: "Frase: {{text}}\nResposta:"
 doc_to_target: !function utils.convert_label_to_int
 doc_to_choice: ["no", "sí"]
 metric_list:

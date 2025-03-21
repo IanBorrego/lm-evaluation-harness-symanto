@@ -92,3 +92,14 @@ tasks:
   - general-paws_pt-paraphrase_detection-2019-portuguese
   - general-xlsum-text_summarization-2021-portuguese
   - general-xstorycloze-question_answering-2024-portuguese
+  - general-arc-question_answering-2024-catalan
+  - general-belebele-reading_comprehension-2024-catalan
+  - general-cabreu-text_summarization-2024-catalan
+  - general-catcola-linguistic_acceptability-2024-catalan
+  - general-copa-commonsense_reasoning-2024-catalan
+  - general-openbook_qa-question_answering-2022-catalan
+  - general-parafraseja-paraphrase_detection-2022-catalan
+  - general-paws_ca-paraphrase_detection-2019-catalan
+  - iberbench/general-teca-textual_entailment-2021-catalan
+  - general-xnli-textual_entailment-2024-catalan
+  - general-xstorycloze-question_answering-2024-catalan
