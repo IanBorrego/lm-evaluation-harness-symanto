@@ -1,0 +1,37 @@
+task: general-fmtodeu-intent_classification-2024-basque
+tag:
+  - iberbench
+  - general
+  - intent_classification
+  - "2024"
+  - basque
+
+dataset_path: iberbench/general-fmtodeu-intent_classification-2024-basque
+description: "Zehaztu hurrengo esaldiaren asmoa.\n"
+doc_to_text: "Esaldia: {{text}}\nAsmoa:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: [
+    "alarma/bertan_behera_utzi_alarma",
+    "alarma/aldatu_alarma",
+    "alarma/ezarri_alarma",
+    "alarma/erakutsi_alarmak",
+    "alarma/atzera_jarri_alarma",
+    "alarma/geratzen_den_denbora_alarma",
+    "gogorarazle/bertan_behera_utzi_gogorarazlea",
+    "gogorarazle/ezarri_gogorarazlea",
+    "gogorarazle/erakutsi_gogorarazleak",
+    "eguraldia/egunsentia_begiratu",
+    "eguraldia/ilunabarra_begiratu",
+    "eguraldia/bilatu"
+]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0
