@@ -55,7 +55,6 @@ tasks:
   - iberlef-mentalriskes-depression_categorization-2023-spanish
   - iberlef-restmex-gender_detection-2021-spanish-mexico
   - iberlef-adobo-lexical_borrowing_chunking-2021-spanish
-  - general-eus_exams-question_answering-2024-spanish
   - general-eus_exams-question_answering-2024-basque
   - general-eus_reading-reading_comprehension-2024-basque
   - general-eus_trivia-question_answering-2024-basque
@@ -69,3 +68,15 @@ tasks:
   - general-qnli-textual_entailment-2024-basque
   - general-fmtodeu-intent_classification-2024-basque
   - general-bhtc-topic_classification-2024-basque
+  - general-belebele-reading_comprehension-2024-spanish
+  - general-clindiagnoses-topic_classification-2024-spanish
+  - general-copa_es-commonsense_reasoning-2024-spanish
+  - general-escola-linguistic_acceptability-2024-spanish
+  - general-eus_exams-question_answering-2024-spanish
+  - general-openbook_qa-question_answering-2022-spanish
+  - general-paws_x-paraphrase_detection-2019-spanish
+  - general-teleia-proficiency_evaluation-2024-spanish
+  - general-xlsum-text_summarization-2021-spanish
+  - general-xnli-textual_entailment-2024-spanish
+  - pan-author_profiling-age_detection-2015-spanish
+  - pan-author_profiling-gender_detection-2017-spanish
