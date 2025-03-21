@@ -294,8 +294,10 @@ def eval_all_models() -> None:
     ]
 
     for request_id in request_ids:
-        eval_single_model(request_id)
-
+        try:
+            eval_single_model(request_id)
+        except Exception as e:
+            print(f"There was an error evaluating the model with id={request_id}: {e}")
 
 def eval_single_model(request_id: str) -> None:
     """
