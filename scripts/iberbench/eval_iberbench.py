@@ -119,9 +119,9 @@ def get_model_results(model_name: str) -> dict:
     for task in results:
         if "f1,none" in results[task]:
             model_results[task] = results[task]["f1,none"]
-        elif "iberbench_seqeval,none":
+        elif "iberbench_seqeval,none" in results[task]:
             model_results[task] = results[task]["iberbench_seqeval,none"]
-        elif "rouge1,none":
+        elif "rouge1,none" in results[task]:
             model_results[task] = results[task]["rouge1,none"]
         else:
             model_results[task] = results[task]["acc,none"]
@@ -342,6 +342,9 @@ def eval_single_model(request_id: str) -> None:
 
         # Run lm eval
         command = [
+            "accelerate",
+            "launch",
+            "-m",
             "lm_eval",
             "--model",
             "hf",
@@ -360,7 +363,6 @@ def eval_single_model(request_id: str) -> None:
 
         # Update the hub with the new results
         update_hub_results(model_name)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
