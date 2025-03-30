@@ -14,9 +14,11 @@ import subprocess
 import argparse
 import sys
 import yaml
+import gc
 from pathlib import Path
 import pandas as pd
 from typing import Optional
+from transformers import AutoModelForCausalLM
 from datasets import load_dataset, Dataset, disable_caching
 from huggingface_hub import create_repo, HfApi
 from huggingface_hub.utils import HfHubHTTPError
@@ -54,6 +56,23 @@ def load_model_request_from_hub(request_id: str) -> dict:
         return json.load(fr)
 
 
+def get_model_params(model_name: str) -> int:
+    """
+    Get the number of parameters of a given model.
+
+    Args:
+        model_name (str): name of the model
+
+    Returns:
+        int: number of model parameters
+    """
+    model = AutoModelForCausalLM.from_pretrained(model_name)
+    num_parameters = model.num_parameters()
+    del model
+    gc.collect()
+    return num_parameters
+
+
 def create_model_args(model_request: dict) -> str:
     """
     Get the model args as string, from the model request,
@@ -67,9 +86,7 @@ def create_model_args(model_request: dict) -> str:
     """
     model_args_parts = []
     if model_request["weight_type_option"] != "Original":
-        model_args_parts.append(
-            f"pretrained={model_request['base_model_name']}"
-        )
+        model_args_parts.append(f"pretrained={model_request['base_model_name']}")
         model_args_parts.append(f"peft={model_request['model_name']}")
     else:
         model_args_parts.append(f"pretrained={model_request['model_name']}")
@@ -168,7 +185,7 @@ def load_results_dataset() -> Optional[Dataset]:
         return None
 
 
-def update_hub_results(model_name: str) -> None:
+def update_hub_results(model_request: dict) -> None:
     """
     Updates the results of the model. Loads the results
     from the local `RESULTS_PATH` of the model and update
@@ -185,8 +202,13 @@ def update_hub_results(model_name: str) -> None:
          results into the results repository.
 
     Args:
-        model_name (str): name of the model
+        model_request (dict): model info in the request
     """
+    model_name = model_request["model_name"]
+    model_type = model_request["model_type"]
+    num_parameters = model_request["num_parameters"]
+
+    # Get results of this model run in local
     model_results = get_model_results(model_name)
 
     # Get current results in the hub for this model
@@ -194,7 +216,11 @@ def update_hub_results(model_name: str) -> None:
 
     # If no results dataset, we have to create it with the results of this model
     if results_dataset is None:
-        model_results = {"model_name": model_name} | model_results
+        model_results = {
+            "model_name": model_name,
+            "model_type": model_type,
+            "num_parameters": num_parameters,
+        } | model_results
         results_dataset = Dataset.from_pandas(pd.DataFrame([model_results]))
 
     # If the results dataset exists and it is not empty
@@ -214,8 +240,7 @@ def update_hub_results(model_name: str) -> None:
             if len(new_tasks) > 0:
                 print("Adding new tasks to the hub dataset:", new_tasks)
                 results_dataset = results_dataset.map(
-                    lambda example: {feature: None for feature in new_tasks}
-                    | example
+                    lambda example: {feature: None for feature in new_tasks} | example
                 )
             # And then assign the scores of this model
             # which includes scores for new tasks
@@ -229,7 +254,12 @@ def update_hub_results(model_name: str) -> None:
         # If the model doesn't exist, just add the row
         else:
             results_dataset = results_dataset.add_item(
-                {"model_name": model_name} | model_results
+                {
+                    "model_name": model_name,
+                    "model_type": model_type,
+                    "num_parameters": num_parameters,
+                }
+                | model_results
             )
 
     # Push the dataset to the hub
@@ -299,6 +329,7 @@ def eval_all_models() -> None:
         except Exception as e:
             print(f"There was an error evaluating the model with id={request_id}: {e}")
 
+
 def eval_single_model(request_id: str) -> None:
     """
     Run the evaluation of a requested model using lm eval harness.
@@ -340,6 +371,9 @@ def eval_single_model(request_id: str) -> None:
     else:
         print(f"Evaluating {model_name} on pending tasks: {pending_tasks}")
 
+        # Add model num params to the model request
+        model_request["num_parameters"] = get_model_params(model_name)
+
         # Run lm eval
         command = [
             "accelerate",
@@ -362,7 +396,8 @@ def eval_single_model(request_id: str) -> None:
         subprocess.run(command, stdout=sys.stdout, stderr=sys.stderr, text=True)
 
         # Update the hub with the new results
-        update_hub_results(model_name)
+        update_hub_results(model_request)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

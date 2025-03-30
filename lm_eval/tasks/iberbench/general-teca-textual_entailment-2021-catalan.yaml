@@ -1,4 +1,4 @@
-task: iberbench/general-teca-textual_entailment-2021-catalan
+task: general-teca-textual_entailment-2021-catalan
 tag:
   - iberbench
   - general

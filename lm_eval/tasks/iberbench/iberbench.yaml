@@ -100,6 +100,6 @@ tasks:
   - general-openbook_qa-question_answering-2022-catalan
   - general-parafraseja-paraphrase_detection-2022-catalan
   - general-paws_ca-paraphrase_detection-2019-catalan
-  - iberbench/general-teca-textual_entailment-2021-catalan
+  - general-teca-textual_entailment-2021-catalan
   - general-xnli-textual_entailment-2024-catalan
   - general-xstorycloze-question_answering-2024-catalan
