@@ -1,0 +1,24 @@
+task: iberlef-vaxxstance-stance_detection-2021-basque
+tag:
+  - iberbench
+  - iberlef
+  - stance_detection
+  - "2021"
+  - basque
+
+dataset_path: iberbench/iberlef-vaxxstance-stance_detection-2021-basque
+description: "Zehaztu testu honek txertoei buruz duen posizioa: neutroa, aldekoa edo kontrakoa.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Testua: {{text}}\nZein da testu honek adierazten duen jarrera txertoen inguruan?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["neutroa", "alde","aurka"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

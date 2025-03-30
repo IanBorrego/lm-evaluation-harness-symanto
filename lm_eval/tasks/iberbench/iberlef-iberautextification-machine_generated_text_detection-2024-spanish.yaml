@@ -1,0 +1,24 @@
+task: iberlef-iberautextification-machine_generated_text_detection-2024-spanish
+tag:
+  - iberbench
+  - iberlef
+  - machine_generated_text_detection
+  - "2024"
+  - spanish
+
+dataset_path: iberbench/iberlef-iberautextification-machine_generated_text_detection-2024-spanish
+description: "Determina si el siguiente texto ha sido generado por un modelo de inteligencia artificial o por un humano.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Texto: {{text}}\n¿Ha sido generado por un modelo de inteligencia artificial o por un humano?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["humano", "generado"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

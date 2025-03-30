@@ -1,0 +1,24 @@
+task: general-teca-textual_entailment-2021-catalan
+tag:
+  - iberbench
+  - general
+  - textual_entailment
+  - "2021"
+  - catalan
+
+dataset_path: iberbench/general-teca-textual_entailment-2021-catalan
+description: "Determina si la hipòtesi és certa, neutra o falsa atesa la premissa.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Premissa: {{premise}}\nHipótesi: {{hypothesis}}\nResposta:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["certa", "neutra", "falsa"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

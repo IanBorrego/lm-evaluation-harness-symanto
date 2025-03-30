@@ -1,0 +1,25 @@
+task: iberlef-restmex-gender_detection-2021-spanish-mexico
+tag:
+  - iberbench
+  - iberlef
+  - gender_detection
+  - "2021"
+  - spanish
+  - mexico
+
+dataset_path: iberbench/iberlef-restmex-gender_detection-2021-spanish-mexico
+description: "Dada una opinión sobre un lugar turístico mexicano, el objetivo es determinar el género de la persona que escribió el texto\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Opinión: {{text}}\n¿Cuál es el género del autor del texto?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["hombre", "mujer", "no identificado"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

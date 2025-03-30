@@ -1,0 +1,25 @@
+task: tass-tass-emotion_analysis-2020-spanish
+tag:
+  - iberbench
+  - tass
+  - emotion_analysis
+  - "2020"
+  - spanish
+
+dataset_path: iberbench/tass-tass-emotion_analysis-2020-spanish
+description: "Clasifica la emoción del siguiente tweet en alegría, tristeza, enfado, sorpresa, miedo, disgusto u otra.\n"
+
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Tweet: {{text}}\nEmoción:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["otra", "alegría", "tristeza", "enfado", "sorpresa", "miedo", "disgusto"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

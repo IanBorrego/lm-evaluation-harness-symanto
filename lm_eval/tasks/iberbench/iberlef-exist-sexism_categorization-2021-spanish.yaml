@@ -1,0 +1,33 @@
+task: iberlef-exist-sexism_categorization-2021-spanish
+tag:
+  - iberbench
+  - iberlef
+  - sexism_categorization
+  - "2021"
+  - spanish
+
+dataset_path: iberbench/iberlef-exist-sexism_categorization-2021-spanish
+description: |
+  Determina si el siguiente tweet es sexista o no. En caso de ser sexista, determina la categoría de sexismo.
+  Las categorías son: 
+  1) no sexista
+  2) misoginia sin violencia sexual: expresa odio y violencia hacia las mujeres
+  3) estereotipos y dominancia: expresa ideas falsas sobre las mujeres que sugieren que son más adecuadas para cumplir ciertos roles, o inadecuadas para ciertas tareas, o afirma que los hombres son de alguna manera superiores a las mujeres
+  4) desigualdad ideológica: desacredita el movimiento feminista, rechaza la desigualdad entre hombres y mujeres o presenta a los hombres como víctimas de la opresión de género.
+  5) objetificación: presenta a las mujeres como objetos ajenos a su dignidad y aspectos personales, o asume o describe ciertas cualidades físicas que las mujeres deben tener para cumplir los roles de género tradicionales.
+  6) violencia sexual: sugerencias sexuales, solicitudes de favores sexuales o acoso de naturaleza sexual (violación o agresión sexual)\n
+
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Tweet: {{text}}\nTipo de sexismo:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["no sexista", "misoginia sin violencia sexual", "estereotipos y dominancia", "desigualdad ideológica", "objetificación", "violencia sexual"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

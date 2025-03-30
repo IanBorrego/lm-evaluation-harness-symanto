@@ -34,6 +34,7 @@ class TaskManager:
         self._task_index = self.initialize_tasks(
             include_path=include_path, include_defaults=include_defaults
         )
+
         self._all_tasks = sorted(list(self._task_index.keys()))
 
         self._all_groups = sorted(

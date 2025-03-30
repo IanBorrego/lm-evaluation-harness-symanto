@@ -1,0 +1,24 @@
+task: iberlef-meoffendes-offensiveness_detection-2021-spanish
+tag:
+  - iberbench
+  - iberlef
+  - offensiveness_detection
+  - "2021"
+  - spanish
+  
+dataset_path: iberbench/iberlef-meoffendes-offensiveness_detection-2021-spanish
+description: "Determina si el siguiente texto es ofensivo y, en caso de serlo, contra quién está dirigido.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Texto: {{text}}\n¿Qué nivel de ofensividad presenta este texto y hacia quién va dirigido?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["no ofensivo", "no ofensivo, pero con lenguaje soez", "ofensivo hacia un grupo", "ofensivo hacia una persona"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

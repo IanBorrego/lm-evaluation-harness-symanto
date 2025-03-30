@@ -1,0 +1,25 @@
+task: iberlef-restmex-sentiment_analysis-2021-spanish-mexico
+tag:
+  - iberbench
+  - iberlef
+  - sentiment_analysis
+  - "2021"
+  - spanish
+  - mexico
+
+dataset_path: iberbench/iberlef-restmex-sentiment_analysis-2021-spanish-mexico
+description: "Dada una opinión sobre un lugar turístico mexicano, el objetivo es determinar la valoración del lugar en una escala del 1 (muy negativa) al 5 (muy positiva).\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Opinión: {{text}}\nLa valoración es:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["1", "2", "3", "4", "5"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

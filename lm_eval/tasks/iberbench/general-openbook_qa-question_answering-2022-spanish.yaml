@@ -1,0 +1,24 @@
+task: general-openbook_qa-question_answering-2022-spanish
+tag:
+  - iberbench
+  - general
+  - question_answering
+  - "2024"
+  - spanish
+
+dataset_path: iberbench/general-openbook_qa-question_answering-2022-spanish
+description: "Elige la mejor opción para completar el texto.\n"
+doc_to_text: "Texto: {{question}}\nA: {{candidate_a}}\nB: {{candidate_b}}\nC: {{candidate_c}}\nD: {{candidate_d}}\nRespuesta:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["A", "B", "C", "D"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

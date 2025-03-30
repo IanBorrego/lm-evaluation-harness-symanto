@@ -129,14 +129,14 @@ def brier_score(items):  # This is a passthrough function
     gold_one_hot = np.eye(num_class)[gold]
     return np.mean(np.sum((predictions - gold_one_hot) ** 2, axis=1))
 
+SEQEVAL = evaluate.load("seqeval")
 def iberbench_seqeval(references, predictions, is_iob):
     # Reconstruct the labeling from the annotated texts/generations
     get_labels_fn = get_iob_labels if is_iob else get_non_iob_labels
     references = [get_labels_fn(text) for text in references]
     predictions = [get_labels_fn(text) for text in predictions]
-    seqeval = evaluate.load("seqeval")
     try:
-        return seqeval.compute(predictions=predictions, references=references)[
+        return SEQEVAL.compute(predictions=predictions, references=references)[
             "overall_f1"
         ]
     except ValueError:

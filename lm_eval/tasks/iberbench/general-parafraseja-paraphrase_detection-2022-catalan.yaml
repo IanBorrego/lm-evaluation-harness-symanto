@@ -1,0 +1,24 @@
+task: general-parafraseja-paraphrase_detection-2022-catalan
+tag:
+  - iberbench
+  - general
+  - paraphrase_detection
+  - "2022"
+  - catalan
+
+dataset_path: iberbench/general-parafraseja-paraphrase_detection-2022-catalan
+description: "Determina si les dues frases següents són paràfrasis, és a dir, expressen el mateix significat.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Frase 1: {{sentence1}}\nFrase 2: {{sentence2}}\nResposta:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["no", "sí"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

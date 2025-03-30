@@ -1,0 +1,24 @@
+task: general-eus_proficiency-proficiency_evaluation-2024-basque
+tag:
+  - iberbench
+  - general
+  - proficiency_evaluation
+  - "2024"
+  - basque
+
+dataset_path: iberbench/general-eus_proficiency-proficiency_evaluation-2024-basque
+description: "Erantzun hurrengo galderari.\n"
+doc_to_text: "Galdera: {{question}}\nA: {{candidate_a}}\nB: {{candidate_b}}\nC: {{candidate_c}}\nD: {{candidate_d}}\nErantzuna:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["A", "B", "C", "D"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

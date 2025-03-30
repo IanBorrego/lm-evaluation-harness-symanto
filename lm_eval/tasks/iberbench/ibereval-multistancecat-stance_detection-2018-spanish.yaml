@@ -1,0 +1,24 @@
+task: ibereval-multistancecat-stance_detection-2018-spanish
+tag:
+  - iberbench
+  - ibereval
+  - stance_detection
+  - "2018"
+  - spanish
+
+dataset_path: iberbench/ibereval-multistancecat-stance_detection-2018-spanish
+description: "Determina la postura del siguiente texto con respecto al referéndum catalán de independencia: en contra, a favor o sin postura.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Texto: {{text}}\n¿Cuál es la postura expresada?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["ninguna", "en contra", "a favor"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

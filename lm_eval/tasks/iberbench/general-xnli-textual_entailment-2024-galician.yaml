@@ -1,0 +1,24 @@
+task: general-xnli-textual_entailment-2024-galician
+tag:
+  - iberbench
+  - general
+  - textual_entailment
+  - "2024"
+  - galician
+
+dataset_path: iberbench/general-xnli-textual_entailment-2024-galician
+description: "Determina se a hipótese é verdadeira, falsa ou neutra dada a premisa.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Premisa: {{premise}}\nHipótese: {{hypothesis}}\nResposta:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["falsa", "neutra", "verdadeira"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

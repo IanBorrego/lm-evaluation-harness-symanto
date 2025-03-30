@@ -1,0 +1,24 @@
+task: general-clindiagnoses-topic_classification-2024-spanish
+tag:
+  - iberbench
+  - general
+  - topic_classification
+  - "2024"
+  - spanish
+
+dataset_path: iberbench/general-clindiagnoses-topic_classification-2024-spanish
+description: "Determina el tema del siguiente texto.\n"
+doc_to_text: "Texto: {{text}}\nTema:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["psiquiatria", "dermatologia", "traumatologia", "otorrino larongologia", "urgencias", "neurologia", "cardiologia", "anestesia"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

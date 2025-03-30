@@ -1,0 +1,28 @@
+task: general-cabreu-text_summarization-2024-catalan
+tag:
+  - iberbench
+  - general
+  - text_summarization
+  - "2024"
+  - catalan
+
+dataset_path: iberbench/general-cabreu-text_summarization-2024-catalan
+description: "Examina el text següent i genera'n un resum abstractiu, expressant el significat del text original d'una manera més natural i concisa.\n"
+doc_to_text: "Text: {{text}}\nResum:"
+training_split: train
+test_split: test
+doc_to_target: '{{summary}}'
+output_type: generate_until
+generation_kwargs:
+  until:
+    - "\n\n"
+    - </s>
+    - <|im_end|>
+  do_sample: false
+  max_gen_toks: 128
+metric_list:
+  - metric: !function utils.rouge1
+    aggregation: !function utils.rouge1_agg
+    higher_is_better: true
+metadata:
+  version: 1.0

@@ -1,0 +1,24 @@
+task: general-eus_trivia-topic_classification-2024-basque
+tag:
+  - iberbench
+  - general
+  - topic_classification
+  - "2024"
+  - basque
+
+dataset_path: iberbench/general-eus_trivia-topic_classification-2024-basque
+description: "Zehaztu hurrengo testuaren gaia.\n"
+doc_to_text: "Testua: {{question}}\nGaia:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["matematika eta teknologia", "aisia eta artea", "musika", "hizkuntza eta literatura", "giza eta natur zientziak"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

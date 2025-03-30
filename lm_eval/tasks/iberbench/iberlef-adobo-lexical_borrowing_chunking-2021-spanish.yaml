@@ -1,0 +1,47 @@
+task: iberlef-adobo-lexical_borrowing_chunking-2021-spanish
+tag:
+  - iberbench
+  - iberlef
+  - lexical_borrowing_chunking
+  - "2021"
+  - spanish
+
+dataset_path: iberbench/iberlef-adobo-lexical_borrowing_chunking-2021-spanish
+
+description: |
+  Determina qué fragmentos son préstamos léxicos no asimilados en el idioma español.
+  Éstos fragmentos son fragmentos como "hacker", "software", "gay friendly", etc., que no tienen traducción directa al español.
+  Los préstamos léxicos pueden ser del inglés, en cuyo caso debes marcarlos entre etiquetas <eng> ... </eng> o de otros idiomas, que debes marcar entre etiquetas <other> ... </other>.
+  Debes escribir el texto que se te proporciona, envolviendo cada fragmento que detectes como préstamo léxico con tags <eng> ... </eng> o <other> ... </other>.
+  No olvides abrir y cerrar los tags en caso de que detectes préstamos léxicos.
+  Envuelve toda tu respuesta entre tags <response> ... </response>\n\n.
+
+output_type: generate_until
+training_split: train
+test_split: test
+doc_to_text: "Texto: {{text}}\nRespuesta:"
+fewshot_delimiter: "\n"
+target_delimiter: " "
+doc_to_target: label
+num_fewshot: 3
+fewshot_config:
+  sampler: first_n
+  samples:
+  - text: Microsoft promete formación digital en software y componentes .
+    label: <response> Microsoft promete formación digital en <eng> software </eng> y componentes . </response>
+  - text: Ese leitmotiv es muy interesante .
+    label: <response> Ese <other> leitmotiv </other> es muy interesante . </response>
+  - text: A José Ángel no le contrata nadie .
+    label: <response> A José Ángel no le contrata nadie . </response>
+  
+generation_kwargs:
+  max_gen_toks: 256
+  do_sample: false
+  until:
+  - </response>
+metric_list:
+  - metric: iberbench_seqeval
+    higher_is_better: true
+    is_iob: true
+metadata:
+  version: 1.0

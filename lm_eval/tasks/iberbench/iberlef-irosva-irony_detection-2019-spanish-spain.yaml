@@ -1,0 +1,25 @@
+task: iberlef-irosva-irony_detection-2019-spanish-spain
+tag:
+  - iberbench
+  - iberlef
+  - irony_detection
+  - "2019"
+  - spanish
+  - spain
+
+dataset_path: iberbench/iberlef-irosva-irony_detection-2019-spanish-spain
+description: "Determina si el siguiente texto expresa ironía.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Texto: {{text}}\n¿Expresa ironía?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["no", "sí"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

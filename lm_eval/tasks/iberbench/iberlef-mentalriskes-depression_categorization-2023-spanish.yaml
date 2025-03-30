@@ -1,0 +1,24 @@
+task: iberlef-mentalriskes-depression_categorization-2023-spanish
+tag:
+  - iberbench
+  - iberlef
+  - depression_categorization
+  - "2023"
+  - spanish
+
+dataset_path: iberbench/iberlef-mentalriskes-depression_categorization-2023-spanish
+description: "Determina si los mensajes de esta persona indican que sufre depresión y su postura ante ella.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Mensajes: {{text}}\n¿Cuál es la postura de esta persona con respecto a la depresión?:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["depresivo", "depresivo y a favor de la depresión", "depresivo y en contra de la depresión", "depresivo y ni en contra ni a favor de la depresión"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

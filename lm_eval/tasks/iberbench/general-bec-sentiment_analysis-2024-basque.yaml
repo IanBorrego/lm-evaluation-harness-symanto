@@ -1,0 +1,24 @@
+task: general-bec-sentiment_analysis-2024-basque
+tag:
+  - iberbench
+  - general
+  - sentiment_analysis
+  - "2024"
+  - basque
+
+dataset_path: iberbench/general-bec-sentiment_analysis-2024-basque
+description: "Sailkatu hurrengo testuaren polaritatea negatibo, neutro edo positibo gisa.\n"
+doc_to_text: "Testua: {{text}}\nPolaritatea:"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["negatibo", "neutro", "positibo"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0

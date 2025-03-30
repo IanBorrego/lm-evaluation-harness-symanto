@@ -1,0 +1,24 @@
+task: general-xnli-textual_entailment-2024-spanish
+tag:
+  - iberbench
+  - general
+  - textual_entailment
+  - "2024"
+  - spanish
+
+dataset_path: iberbench/general-xnli-textual_entailment-2024-spanish
+description: "Determina si la hipótesis es cierta dada la premisa.\n"
+output_type: multiple_choice
+training_split: train
+test_split: test
+doc_to_text: "Premisa: {{premise}}\nHipótesis: {{hypothesis}}\nRespuesta:"
+doc_to_target: !function utils.convert_label_to_int
+doc_to_choice: ["no", "sí"]
+metric_list:
+  - metric: acc
+    aggregation: mean
+  - metric: f1
+    aggregation: !function utils.macro_f1_score
+    average: macro
+metadata:
+  version: 1.0
